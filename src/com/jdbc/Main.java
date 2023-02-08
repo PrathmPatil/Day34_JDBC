@@ -2,15 +2,14 @@ package com.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 
 public class Main {
 
 	public static void main(String[] args) {
-		String url="jdbc:mysql://localhost:3306/addressbook";
-//		api:database:server:port:databaseName
-		String userName="root";
-		String pass="Patil@2000";
+		
 		Connection con=null;
 		
 		try {
@@ -22,8 +21,10 @@ public class Main {
 			e.printStackTrace();
 		}
 		try {
-			con=DriverManager.getConnection(url,userName,pass);
-			System.out.println("Connection done.");
+			EmployeePayroll emp=new EmployeePayroll();
+			emp.returnlist(con);
+			
+			System.out.println("Add data Susseccfully showed.");			
 		}catch(Exception e)
 		{
 			e.printStackTrace();
